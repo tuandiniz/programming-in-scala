@@ -16,12 +16,12 @@ class Simulation:
     val item = WorkItem(currentTime + delay, () => block)
     agenda = insert(agenda, item)
 
-  private def next() =
+  private def next(): Unit =
     (agenda: @unchecked) match
       case item :: rest =>
         agenda = rest
         curtime = item.time
-        item.action
+        item.action()
         
   def run(): Unit =
     afterDelay(0) {
