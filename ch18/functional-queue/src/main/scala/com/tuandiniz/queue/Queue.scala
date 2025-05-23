@@ -8,7 +8,7 @@ trait Queue[+T]:
 object Queue:
   def apply[T](initial: T*): Queue[T] = new QueueImpl(initial.toList.reverse, Nil)
 
-  private class QueueImpl[+T] (
+  private class QueueImpl[T] (
           private val leading: List[T],
           private val trailing: List[T]
     ) extends Queue[T] :
